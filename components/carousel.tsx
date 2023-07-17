@@ -24,11 +24,27 @@ export default function Carousel({ images }: { images: React.JSX.Element[] }) {
     return () => clearInterval(intervalId);
   }, [currImage]);
 
+  const navigateToPhoto = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setCurrImage(parseInt(e.target.id));
+  };
+
   return (
     <div className="carousel-container">
-      <button onClick={viewPrevImage}>Back</button>
-      {images[currImage]}
-      <button onClick={viewNextImage}>Next</button>
+      <div className="image-container">
+        <button onClick={viewPrevImage}>Back</button>
+        {images[currImage]}
+        <button onClick={viewNextImage}>Next</button>
+      </div>
+      <nav>
+        {[...Array(numOfPhotos)].map((_, i) => (
+          <button
+            key={i}
+            id={`${i}`}
+            className={`circle ${i === currImage ? "selected" : ""}`}
+            onClick={navigateToPhoto}
+          ></button>
+        ))}
+      </nav>
     </div>
   );
 }
