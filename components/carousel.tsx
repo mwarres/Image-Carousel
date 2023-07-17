@@ -29,13 +29,13 @@ export default function Carousel({ images }: { images: React.JSX.Element[] }) {
   };
 
   return (
-    <div className="carousel-container">
+    <div className="center">
       <div className="image-container">
         <button onClick={viewPrevImage}>Back</button>
         {images[currImage]}
         <button onClick={viewNextImage}>Next</button>
       </div>
-      <nav>
+      <div>
         {[...Array(numOfPhotos)].map((_, i) => (
           <button
             key={i}
@@ -44,7 +44,7 @@ export default function Carousel({ images }: { images: React.JSX.Element[] }) {
             onClick={navigateToPhoto}
           ></button>
         ))}
-      </nav>
+      </div>
     </div>
   );
 }

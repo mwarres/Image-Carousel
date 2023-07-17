@@ -18,7 +18,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className="center">
       <Head>
         <title>Image Carousel</title>
       </Head>
@@ -26,6 +26,6 @@ export default function App() {
         <h1>Your next vacation awaits!!</h1>
         <Carousel images={imgs} />
       </main>
-    </>
+    </div>
   );
 }
